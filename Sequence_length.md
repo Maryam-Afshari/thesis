@@ -123,6 +123,7 @@ cross-correlation coefficient, however, it is first necessary to obtain
 a stationary time series.
 
 ``` r
+# differencing the data
 t_diff <- diff(data$t, lag=1)
 obs_diff <- diff(data$obs, lag = 1)
 
