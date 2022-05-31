@@ -52,6 +52,7 @@ ts.plot(data$obs)
 In the absence of a theoretical reason, we can get some idea of what lag might be appropriate by using descriptive such as the cross-correlation function (CCF). The CCF is like the bivariate version of the ACF (auto-correlation function): Instead of looking at the correlation between X and lagged versions of X, the cross-correlation function encodes the lagged correlation between X and Y. To compute a meaningful cross-correlation coefficient, however, it is first necessary to obtain a stationary time series.
 
 ```{r}
+# differencing the data
 t_diff <- diff(data$t, lag=1)
 obs_diff <- diff(data$obs, lag = 1)
 
