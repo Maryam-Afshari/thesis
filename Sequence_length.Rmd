@@ -1,0 +1,97 @@
+---
+title: "Proper length of sequence to feed to LSTM model"
+output: html_document
+---
+
+### loading the required libraries 
+```{r}
+library("httr")
+library('dplyr')
+library('ggplot2')
+library('jsonlite')
+library("fpp3")
+library('forecast')
+library("tseries")
+library(tsibble)
+```
+
+### reading dataset 
+```{r}
+data = read.csv("basel.csv")
+tail(data)
+```
+
+### Visualizing predictors 
+```{r}
+# Visualizing evapotranspiration
+ts.plot(data$et)
+```
+```{r}
+# Visualizing precipitation
+ts.plot(data$p)
+```
+
+```{r}
+# Visualizing temperature
+ts.plot(data$t)
+```
+### Visualizing outcome 
+
+```{r}
+# Visualizing river discharge
+ts.plot(data$obs)
+```
+# Selecting an approproate lag for predictors
+
+In the absence of a theoretical reason, we can get some idea of what lag might be appropriate by using descriptive such as the cross-correlation function (CCF).
+The CCF is like the bivariate version of the ACF (auto-correlation function): Instead of looking at the correlation between X and lagged versions of X, the cross-correlation function encodes the lagged correlation between X and Y.
+To compute a meaningful cross-correlation coefficient, however, it is first necessary to obtain a stationary time series. 
+
+```{r}
+t_diff <- diff(data$t, lag=1)
+obs_diff <- diff(data$obs, lag = 1)
+
+# checking the stationarity with Dickey-Fuller Test
+adf.test(t_diff)
+```
+```{r}
+# checking the stationarity with Dickey-Fuller Test
+adf.test(obs_diff)
+```
+```{r}
+# checking the stationarity with visualizing
+par(mfrow=c(2,1))
+ts.plot(t_diff); ts.plot(obs_diff)
+```
+
+```{r}
+# ccf plot to fing the meaningful lagged variable
+
+ccf(t_diff, obs_diff, 100 , ylab = "CCF")
+
+# according to the plot up until lag 50 for t variable can be included
+
+```
+
+```{r}
+# ccf plot to fing the meaningful lagged variable
+p_diff <- diff(data$p, lag=1)
+
+ccf(p_diff,obs_diff, ylab ="CCF")
+# according to plot up until lag 15 for p variable can be included 
+```
+
+
+```{r}
+# ccf plot to fing the meaningful lagged variable 
+et_diff <- diff(data$p, lag=1)
+
+ccf(et_diff,obs_diff, ylab ="CCF")
+
+# according to plot  up until lag 15 for et variable can be included 
+```
+
+
+
+
+
