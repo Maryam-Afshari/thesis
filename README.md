@@ -12,10 +12,10 @@ Data is available in the directory called "data" with the following files for ea
 
 # Visualizing results
  
- visualization related to each model can be seen within the related notebook. Visualization related to comparing all models is done in Visualization notebook.
+ visualization related to each model can be seen within the related notebook. Visualization related to comparing all models is done in the "Visualization" notebook.
  
  # Output
  
- The folder output contains the outputs resulted from running different LSTM with diffrent time windows.  
+ The folder "output" contains the outputs resulted from running different LSTM with diffrent time windows, as well as output resulted from running other models with the optimal time-lag.  
 
 
