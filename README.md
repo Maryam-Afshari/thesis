@@ -3,7 +3,7 @@ This GitHub repository contains the data and code I have used in my thesis proje
 "Using LSTM and XGBoost for streamflow prediction based on meteorological time series data" supervised by Dr. Edwin Sutanudjaja, Prof. dr. Derek Karssenberg and Youchen Shen. 
 
 # Notebooks
-In this project, we used different ML methods including LSTM, XGBoost, and Multiple Linear Regression (MLR) for two gauging stations including Basel and Lobith. The notebook was named after the model and station.
+In this project, we used different ML methods including LSTM, XGBoost, and Multiple Linear Regression (MLR) for two gauging stations including Basel and Lobith. The notebooks are named after the model and station.
 
 # Data
 Data is available in the directory called "data" with the following files for each station 
@@ -12,10 +12,10 @@ Data is available in the directory called "data" with the following files for ea
 
 # Visualizing results
  
- visualization related to each model can be seen within the related notebook. Visualization related to comparing all models is done in the "Visualization" notebook.
+ visualization related to each model can be seen within its related notebook. Visualization related to comparing all models is done in the "Visualization" notebook.
  
  # Output
  
- The folder "output" contains the outputs resulted from running different LSTM with diffrent time windows, as well as output resulted from running other models with the optimal time-lag.  
+ The folder "output" contains the outputs resulted from running different LSTM with diffrent time windows, as well as output resulted from running other models with the optimal time-lags.  
 
 
